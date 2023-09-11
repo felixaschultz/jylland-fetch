@@ -40,8 +40,16 @@ const defaultData = [
     }
   ]
 
-fetch(API_URL, {
+/* fetch(API_URL, {
     headers: {Accept: "application/json"},
     method: "POST",
     body: JSON.stringify(defaultData)
-}).then(response => response.json()).then(data => console.log(data));   // {name: "Jylland"}
+}).then(response => response.json()).then(data => console.log(data));   // {name: "Jylland"} */
+const container = document.querySelector("#container");
+
+fetch(API_URL).then(response => response.json()).then(data => {
+    console.log(data["-Ne2XiOdupZ_A-a9IEpQ"]);
+    data["-Ne2XiOdupZ_A-a9IEpQ"].forEach(element => {
+        console.log(element);
+    });
+});

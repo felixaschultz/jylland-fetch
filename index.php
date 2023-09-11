@@ -7,6 +7,6 @@
     <script src="scripts.js"></script>
 </head>
 <body>
-    
+    <div id="container"></div>
 </body>
 </html>
