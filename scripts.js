@@ -61,7 +61,9 @@ fetch(API_URL).then(response => response.json()).then(data => {
                 <p>${item.city}</p>
                 <p>${item.email}</p>
                 <p>${item.is_subscribed}</p>
-                <p>${item.hobbies}</p>
+                <ul>
+                ${item.hobbies.map(hobby => `<li>${hobby}</li>`).join('')}
+            </ul>
                 <p>${item.address.street}</p>
                 <p>${item.address.zipcode}</p>
             </div>
