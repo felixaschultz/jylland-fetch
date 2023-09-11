@@ -13,37 +13,18 @@ const container = document.querySelector("#container");
 fetch(API_URL).then(response => response.json()).then(data => {
     const array = Object.keys(data).map(key => (data[key]));
     array.forEach(element => { 
-        if(typeof element.length === "undefined"){
-            console.log(element);
-            container.innerHTML += `
-            <div class="card">
-                <h2>${element.name}</h2>
-                <p>${element.age}</p>
-                <p>${element.city}</p>
-                <p>${element.email}</p>
-                <p>${element.is_subscribed}</p>
-                <p>${element.hobbies}</p>
-                <p>${element.address.street}</p>
-                <p>${element.address.zipcode}</p>
-            </div>
-            `;
-            return;
-        }
-        element.forEach(item => {
-            container.innerHTML += `
-            <div class="card">
-                <h2>${item.name}</h2>
-                <p>${item.age}</p>
-                <p>${item.city}</p>
-                <p>${item.email}</p>
-                <p>${item.is_subscribed}</p>
-                <ul>
-                ${item.hobbies.map(hobby => `<li>${hobby}</li>`).join('')}
-            </ul>
-                <p>${item.address.street}</p>
-                <p>${item.address.zipcode}</p>
-            </div>
-            `;
-        });
+          console.log(element);
+          container.innerHTML += `
+          <div class="card">
+              <h2>${element.name}</h2>
+              <p>${element.age}</p>
+              <p>${element.city}</p>
+              <p>${element.email}</p>
+              <p>${(element.is_subscribed) ? "Subscribed" : "Not subscribed"}</p>
+              <ul>${element.hobbies.map(hobby => `<li>${hobby}</li>`).join('')}</ul>
+              <p>${element.address.street}</p>
+              <p>${element.address.zipcode}</p>
+          </div>
+          `;
     });
 });
