@@ -48,7 +48,6 @@ const defaultData = [
 const container = document.querySelector("#container");
 
 fetch(API_URL).then(response => response.json()).then(data => {
-    for (let [key, value] of Object.entries(data)) {
-        console.log(key, value);
-    }
+    const array = Object.keys(data).map(key => (data[key]));
+    
 });
