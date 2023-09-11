@@ -50,6 +50,15 @@ const container = document.querySelector("#container");
 fetch(API_URL).then(response => response.json()).then(data => {
     console.log(data["-Ne2XiOdupZ_A-a9IEpQ"]);
     data["-Ne2XiOdupZ_A-a9IEpQ"].forEach(element => {
-        console.log(element);
+        container.innerHTML += `<article class="card">
+            <h2>${element.name}</h2>
+            <p>${element.age}</p>
+            <p>${element.city}</p>
+            <p>${element.email}</p>
+            <p>${element.is_subscribed}</p>
+            <p>${element.hobbies}</p>
+            <p>${element.address.street}</p>
+            <p>${element.address.zipcode}</p>
+        </article>`;
     });
 });
