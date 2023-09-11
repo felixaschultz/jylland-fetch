@@ -49,5 +49,23 @@ const container = document.querySelector("#container");
 
 fetch(API_URL).then(response => response.json()).then(data => {
     const array = Object.keys(data).map(key => (data[key]));
-    
+    array.forEach(element => { 
+        if(typeof element.length === "undefined"){
+            return;
+        }
+        element.forEach(item => {
+            container.innerHTML += `
+            <div class="card">
+                <h2>${item.name}</h2>
+                <p>${item.age}</p>
+                <p>${item.city}</p>
+                <p>${item.email}</p>
+                <p>${item.is_subscribed}</p>
+                <p>${item.hobbies}</p>
+                <p>${item.address.street}</p>
+                <p>${item.address.zipcode}</p>
+            </div>
+            `;
+        });
+    });
 });
